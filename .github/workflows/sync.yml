@@ -1,0 +1,40 @@
+name: Sync with OONI Probe CLI repo
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  sync-with-ooni:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout aaimio/ooniprobe
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Get latest version URL
+        run: |
+          latest_version=$(curl -L \
+            -H 'Accept: application/vnd.github+json' \
+            -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            https://api.github.com/repos/ooni/probe-cli/releases/latest | jq -r '.tag_name')
+            
+          echo "latest_version=$latest_version" >> $GITHUB_ENV
+
+      - name: Compare versions
+        run: |
+          current_version=$(git tag --sort=v:refname | tail -1)
+
+          if [ "$latest_version" != "$current_version" ]; then
+            gh workflow run build-images.yml -f version=$latest_version
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
