@@ -58,7 +58,7 @@ docker run \
 
 ## Custom web connectivity tests
 
-Web connectivity tests can be run against custom URLs by creating a `urls.txt` file in the volume.
+You can run web connectivity tests against custom URLs by creating a `urls.txt` file in the volume, e.g.:
 
 ```txt
 https://www.facebook.com
@@ -72,7 +72,7 @@ https://www.hrw.org
 ```
 
 - Note that creating this file will result in _only_ web connectivity tests being run
-- See https://ooni.org/support/ooni-probe-cli#ooniprobe-run-websites
+- Also see https://ooni.org/support/ooni-probe-cli#ooniprobe-run-websites
 
 ## License
 
