@@ -9,7 +9,7 @@ probe_dir="/.ooniprobe"
 time_between_tests=21600
 
 function log() {
-  echo "[$software_name]: $1"
+  echo "[docker/ooniprobe]: $1"
 }
 
 enabled_category_codes=$(
