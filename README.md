@@ -23,8 +23,8 @@ services:
     volumes:
       - ./ooniprobe:/config
     environment:
-      informed_consent: false # Change this to true
-      upload_results: false # Change this to true
+      informed_consent: true
+      upload_results: true
       websites_max_runtime: 0
       websites_enabled_category_codes: null
       sleep: true
@@ -34,19 +34,16 @@ services:
 ### Docker CLI
 
 ```sh
-docker run -d \
+docker run \
   --name ooniprobe \
-  -v source=./ooniprobe,destination=/config \
-  -e informed_consent=false \ # Change this to true
-  -e upload_results=false \ # Change this to true
+  -v ./ooniprobe:/config \
+  -e informed_consent=true \
+  -e upload_results=true \
   -e websites_max_runtime=0 \
   -e websites_enabled_category_codes=null \
-  -e sleep=true \
   --restart unless-stopped \
   aaimio/ooniprobe:latest
 ```
-
-Set both `informed_consent` and `upload_results` to `true` to share measurements with [OONI collectors](https://explorer.ooni.org/).
 
 ## Environment variables
 
