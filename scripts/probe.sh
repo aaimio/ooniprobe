@@ -6,7 +6,6 @@ config_file="/config/config.json"
 urls_file="/config/urls.txt"
 last_run_file="/config/last_run"
 probe_dir="/.ooniprobe"
-software_name="aaimio/ooniprobe"
 time_between_tests=21600
 
 function log() {
@@ -69,9 +68,9 @@ while true; do
   fi
 
   if [ -f "$urls_file" ]; then
-    $probe_dir/ooniprobe run websites --input-file="$urls_file" --config="$config_file" --software-name="$software_name" $args
+    $probe_dir/ooniprobe run websites --input-file="$urls_file" --config="$config_file" $args
   else 
-    $probe_dir/ooniprobe run --config="$config_file" --software-name="$software_name" ${args:-"unattended"}
+    $probe_dir/ooniprobe run --config="$config_file" ${args:-"unattended"}
   fi
 
   exit_status=$?
