@@ -2,16 +2,16 @@
 
 Docker wrapper for OONI Probe, a tool designed to measure internet censorship by testing whether websites and apps are accessible.
 
-- For more information visit the [OONI website](https://ooni.org) & [OONI Probe CLI repo](https://github.com/ooni/probe-cli).
+- Contribute spare bandwidth to help measure internet censorship
 - [Things you should know before running OONI Probe](https://ooni.org/about/risks/)
+- For more information visit the [OONI website](https://ooni.org) & [OONI Probe CLI repo](https://github.com/ooni/probe-cli)
 
 ## Getting started
 
-Running the Docker image will:
+Running the Docker image will do the following:
 
 1. Launch the OONI Probe CLI and start tests in [`unattended` mode](https://ooni.org/support/ooni-probe-cli#ooniprobe-run-unattended)
 2. After tests complete, the container will `sleep` for 6 hours until the next run (if enabled through [env](#environment-variables))
-   - Alternatively you could set up a cron or other type of orchestration to periodically run these tests.
 
 ### Docker Compose
 
@@ -53,7 +53,7 @@ docker run \
 - **`websites_enabled_category_codes`**: Category codes from the [Citizen Lab test-lists repo](https://github.com/citizenlab/test-lists/blob/master/lists/00-LEGEND-new_category_codes.csv), `null` or `[]`
 - **`sleep`**: Boolean indicating whether the Docker container should sleep between test executions
   - If `true`, the container will `sleep` after completing tests, ensuring that it doesn't exit
-  - Alternatively, you could use a cron job to periodically start the container
+  - Alternatively, you could use a cron or other type of orchestration to periodically start the container
 - **`args`**: Custom arguments appended to `ooniprobe run`, see [OONI Probe CLI](https://ooni.org/support/ooni-probe-cli)
 
 ## Custom web connectivity tests
