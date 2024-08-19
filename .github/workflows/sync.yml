@@ -39,6 +39,8 @@ jobs:
 
           if [ "$latest_version" != "$current_version" ]; then
             gh workflow run build-images.yml -f version=$latest_version
+          else
+            echo "Already on the latest version: $latest_version"
           fi
         env:
           GH_TOKEN: ${{ github.token }}
