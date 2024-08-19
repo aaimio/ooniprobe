@@ -1,3 +1,7 @@
+<div align="center" width="100%">
+    <img src="./ooniprobe.png" width="160" alt="" />
+</div>
+
 # OONI Probe for Docker
 
 Docker wrapper for OONI Probe, a tool designed to measure internet censorship by testing whether websites and apps are accessible.
