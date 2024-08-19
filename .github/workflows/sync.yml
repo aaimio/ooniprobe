@@ -31,7 +31,7 @@ jobs:
 
       - name: Compare versions
         run: |
-          if ! [[ "$1" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          if ! [[ "$latest_version" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "Unexpected release version: $latest_version"
           fi
 
