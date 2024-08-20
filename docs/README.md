@@ -1,6 +1,6 @@
 # OONI Probe for Docker
 
-Docker wrapper for OONI Probe, a tool designed to measure internet censorship by testing whether websites and apps are accessible.
+Docker wrapper for `ooniprobe`, a tool designed to measure internet censorship by testing whether websites and apps are accessible.
 
 - Contribute spare bandwidth to help measure internet censorship
 - [Things you should know before running OONI Probe](https://ooni.org/about/risks/)
