@@ -37,6 +37,7 @@ docker run \
   -v ./ooniprobe:/config \
   -e informed_consent=true \
   -e upload_results=true \
+  -e sleep=true \
   --restart unless-stopped \
   aaimio/ooniprobe:latest
 ```
