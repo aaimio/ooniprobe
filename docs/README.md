@@ -11,7 +11,7 @@ Docker wrapper for OONI Probe, a tool designed to measure internet censorship by
 Running the Docker image will do the following:
 
 1. Launch the OONI Probe CLI and start tests in [`unattended` mode](https://ooni.org/support/ooni-probe-cli#ooniprobe-run-unattended)
-2. After tests complete, the container will `sleep` for 6 hours until the next run (if enabled through [env](#environment-variables))
+2. After tests complete, the container will `sleep` for 6 hours until the next run (this is configurable)
 
 ### Docker Compose
 
