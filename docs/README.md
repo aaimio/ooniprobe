@@ -6,6 +6,8 @@ Docker wrapper for OONI Probe, a tool designed to measure internet censorship by
 - [Things you should know before running OONI Probe](https://ooni.org/about/risks/)
 - For more information visit the [OONI website](https://ooni.org) & [OONI Probe CLI repo](https://github.com/ooni/probe-cli)
 
+> Also see [Docker wrapper for OONI's miniooni](https://github.com/aaimio/miniooni)
+
 ## Getting started
 
 Running the Docker image will do the following:
