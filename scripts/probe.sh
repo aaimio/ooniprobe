@@ -6,7 +6,7 @@ config_file="/config/config.json"
 urls_file="/config/urls.txt"
 last_run_file="/config/last_run"
 probe_dir="/.ooniprobe"
-time_between_tests=21600
+seconds_between_tests=${seconds_between_tests:-21600}
 
 function log() {
   echo "[docker/ooniprobe]: $1"
@@ -54,9 +54,9 @@ while true; do
 
     log "Last run was $diff_time seconds ago."
 
-    if [ $diff_time -lt $time_between_tests ]; then
+    if [ $diff_time -lt $seconds_between_tests ]; then
       if [ "$sleep" = "true" ]; then
-        sleep_time=$((time_between_tests - diff_time))
+        sleep_time=$((seconds_between_tests - diff_time))
         
         log "Sleeping for $sleep_time seconds before next run..."
         sleep $sleep_time
@@ -82,8 +82,8 @@ while true; do
   fi
 
   if [ "$sleep" = "true" ]; then
-    log "Finished. Sleeping for $time_between_tests seconds before next run..."
-    sleep $time_between_tests
+    log "Finished. Sleeping for $seconds_between_tests seconds before next run..."
+    sleep $seconds_between_tests
   else
     log "Finished. Sleep is disabled. Exiting."
     exit 0

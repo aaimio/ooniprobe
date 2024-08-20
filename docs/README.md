@@ -29,8 +29,6 @@ services:
     environment:
       informed_consent: true
       upload_results: true
-      websites_max_runtime: 0
-      websites_enabled_category_codes: null
       sleep: true
     restart: unless-stopped
 ```
@@ -43,8 +41,6 @@ docker run \
   -v ./ooniprobe:/config \
   -e informed_consent=true \
   -e upload_results=true \
-  -e websites_max_runtime=0 \
-  -e websites_enabled_category_codes=null \
   --restart unless-stopped \
   aaimio/ooniprobe:latest
 ```
@@ -55,6 +51,7 @@ docker run \
 - **`upload_results`**: Boolean indicating whether measurements should be uploaded to the OONI collectors
 - **`websites_max_runtime`**: Maximum time in seconds to run website tests for
 - **`websites_enabled_category_codes`**: Category codes from the [Citizen Lab test-lists repo](https://github.com/citizenlab/test-lists/blob/master/lists/00-LEGEND-new_category_codes.csv), `null` or `[]`
+- **`seconds_between_tests`**: Number of seconds between test runs (default is 21600 seconds = 6 hours)
 - **`sleep`**: Boolean indicating whether the Docker container should sleep between test executions
   - If `true`, the container will `sleep` after completing tests, ensuring that it doesn't exit
   - Alternatively, you could use a cron or other type of orchestration to periodically start the container
