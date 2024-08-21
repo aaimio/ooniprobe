@@ -8,7 +8,7 @@ last_run_file="/config/last_run"
 probe_dir="/.ooniprobe"
 seconds_between_tests=${seconds_between_tests:-21600}
 
-function log() {
+log() {
   echo "[docker/ooniprobe]: $1"
 }
 
