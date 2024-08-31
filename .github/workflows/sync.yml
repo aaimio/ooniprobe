@@ -3,7 +3,7 @@ name: Sync with OONI Probe CLI repo
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 10 * * *"
 
 permissions:
   actions: write
